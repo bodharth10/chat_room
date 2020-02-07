@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: chatapp_development
+  username: root
+  host: localhost
+  password: root
+
+test: &test
+  <<: *default
+  database: chatapp_test
+  username: root
+  password: root
+  host: localhost
+
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  database: chatapp_production
+  username: root
+  password: root
+  host: localhost
+  port: 5432
